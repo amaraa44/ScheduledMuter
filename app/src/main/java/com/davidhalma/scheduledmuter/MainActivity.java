@@ -86,10 +86,17 @@ public class MainActivity extends AppCompatActivity {
         int checkedNightButtonId = sharedPreferences.getInt(NIGHT_BUTTON_STATE, R.id.nightVibrateRadioButton);
         nightRadioGroup.check(checkedNightButtonId);
 
+
+        if (morningPendingIntent == null && sharedPreferences.contains(MORNING_CALENDAR_STATE)){
+            morningPendingIntent = PendingIntent.getBroadcast(this, 0, getMorningIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+        if (nightPendingIntent == null && sharedPreferences.contains(NIGHT_CALENDAR_STATE)) {
+            nightPendingIntent = PendingIntent.getBroadcast(this, 1, getNightIntent(), PendingIntent.FLAG_UPDATE_CURRENT);
+        }
+
         long morningCalendarTime = sharedPreferences.getLong(MORNING_CALENDAR_STATE, new Date().getTime());
         morningCalendar = Calendar.getInstance();
         morningCalendar.setTimeInMillis(morningCalendarTime);
-
 
         long nightCalendarTime = sharedPreferences.getLong(NIGHT_CALENDAR_STATE, new Date().getTime());
         nightCalendar = Calendar.getInstance();
@@ -135,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
     public void stopButtonOnClick(View view) {
         Log.d(TAG, "stopButtonOnClick: stop");
 
+        Log.i(TAG, "stopButtonOnClick: " + morningPendingIntent.toString());
+        Log.i(TAG, "stopButtonOnClick: " + nightPendingIntent.toString());
+
         morningAlarmManager.cancel(morningPendingIntent);
         nightAlarmManager.cancel(nightPendingIntent);
 
@@ -174,7 +184,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent nightIntent = getNightIntent();
 
-        nightPendingIntent = PendingIntent.getBroadcast(this, 0, nightIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        nightPendingIntent = PendingIntent.getBroadcast(this, 1, nightIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Log.d(TAG, "nightChange: pendingintent");
 
         if (nightAlarmManager != null) {

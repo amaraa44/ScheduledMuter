@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Scheduled Muter</string>
+
+    <string name="silent">Silent</string>
+    <string name="vibrate">Vibrate</string>
+    <string name="normal">Normal</string>
+
+    <string name="night_time">Night Time</string>
+    <string name="morning_time">Morning Time</string>
+
+    <string name="status_not_running">Status: Not running.</string>
+    <string name="status_running">Status: Running.</string>
+
+    <string name="permission_message">We need your permission for changing your audio setting and sending you notifications.</string>
+
+    <string name="ok">OK</string>
+
+    <string name="start">Start</string>
+    <string name="started">Started</string>
+
+    <string name="stop">Stop</string>
+    <string name="stopped">Stopped</string>
+
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="error_is_here">Error is here: </string>
+
+    <string name="select_ringer_mode">Select a ringer mode.</string>
+
+    <string name="silent_alarm_started">Silent alarm started.</string>
+    <string name="from_now_it_will_be_silent">From now it will be silent.</string>
+
+    <string name="vibrate_alarm_started">Vibrate alarm started.</string>
+    <string name="from_now_it_will_be_almost_silent">From now it will be almost silent.</string>
+
+    <string name="normal_alarm_started">Normal alarm started.</string>
+    <string name="from_now_it_will_be_loud">From now it will be loud.</string>
+</resources>
